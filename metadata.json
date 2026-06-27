@@ -1,0 +1,6 @@
+{
+  "name": "Glam N Glow Beauty Bar",
+  "description": "Elegant beauty salon website featuring our hair, facials, hair removal, nails, lashes, and permanent makeup services, with online scheduling and interactive media gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
