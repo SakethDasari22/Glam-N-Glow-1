@@ -5,14 +5,14 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   
-  --color-brand-cream: #FCF9F5;
-  --color-brand-blush: #FAF0E6;
-  --color-brand-champagne: #F5EBE0;
-  --color-brand-gold: #C5A059;
-  --color-brand-gold-dark: #A47E3B;
-  --color-brand-gold-light: #F4EAD4;
-  --color-brand-charcoal: #2A2521;
-  --color-brand-warm-gray: #6E665E;
+  --color-brand-cream: #FAF9F6;
+  --color-brand-blush: #E8EFEA;
+  --color-brand-champagne: #D4DFDB;
+  --color-brand-gold: #C29F54;
+  --color-brand-gold-dark: #9C7E3E;
+  --color-brand-gold-light: #F4EFDE;
+  --color-brand-charcoal: #0B241C;
+  --color-brand-warm-gray: #465852;
 }
 
 /* Custom scrollbar styling for a polished look */
