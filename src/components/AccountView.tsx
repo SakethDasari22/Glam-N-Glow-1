@@ -858,7 +858,7 @@ export default function AccountView({ onLoginStatusChange }: AccountViewProps) {
                           onChange={(e) => setAdminTimezone(e.target.value)}
                           className="w-full bg-brand-cream border border-brand-champagne/80 p-3 font-sans text-sm text-brand-charcoal focus:outline-none focus:border-brand-gold focus:bg-white"
                         >
-                          <option value="America/Chicago">Central Time (Naperville)</option>
+                          <option value="America/Chicago">Central Time (Aurora)</option>
                           <option value="America/New_York">Eastern Time</option>
                           <option value="America/Denver">Mountain Time</option>
                           <option value="America/Los_Angeles">Pacific Time</option>

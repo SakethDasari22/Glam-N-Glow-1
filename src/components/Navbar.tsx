@@ -99,7 +99,7 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
                 onClick={() => handleNavClick(item.value)}
                 className={`block w-full text-left font-sans text-base tracking-widest uppercase py-2.5 px-3 border-b border-brand-champagne/30 cursor-pointer ${
                   currentPage === item.value
-                    ? 'text-brand-gold font-semibold bg-brand-blush/60'
+                    ? 'text-brand-gold font-bold bg-brand-gold/10'
                     : 'text-brand-charcoal hover:text-brand-gold'
                 }`}
                 id={`mobile-nav-${item.value}`}

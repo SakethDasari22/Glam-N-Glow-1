@@ -28,7 +28,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               </span>
             </div>
             <p className="font-sans text-sm text-brand-cream/70 leading-relaxed font-light">
-              Where beauty meets glow. Providing Naperville with European-grade hair coloring, custom facials, natural sugaring, and certified permanent makeup since {BUSINESS_INFO.established}.
+              Where beauty meets glow. Providing Aurora with European-grade hair coloring, custom facials, natural sugaring, and certified permanent makeup since {BUSINESS_INFO.established}.
             </p>
             <div className="flex items-center gap-2 text-brand-gold">
               <div className="flex text-amber-400">
@@ -131,7 +131,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between font-sans text-xs text-brand-cream/40 font-light">
           <p>© {new Date().getFullYear()} {BUSINESS_INFO.name}. All Rights Reserved.</p>
           <div className="flex gap-4 mt-2 sm:mt-0">
-            <span>Established 2010 • Naperville, IL</span>
+            <span>Established 2010 • Aurora, IL</span>
             <span>|</span>
             <span className="hover:text-brand-gold cursor-pointer" onClick={() => handleNavClick('about')}>Our Mission</span>
           </div>

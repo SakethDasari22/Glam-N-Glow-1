@@ -3,7 +3,7 @@ import { ServiceCategory, Testimonial, TeamMember } from './types';
 export const BUSINESS_INFO = {
   name: 'Glam N Glow Beauty Bar',
   tagline: 'Where Beauty Meets Glow',
-  address: '2760 Aurora Ave, Suite 100, Naperville, IL 60540',
+  address: '4255 Westbrook Dr, Unit 207, Aurora, IL 60504',
   phone: '(872) 400-0706',
   email: 'hello@glamnglowbeautybar.com',
   hours: [
@@ -204,7 +204,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     name: 'Emily T.',
     rating: 5,
-    text: 'I have been a client of Glam N Glow since they established in Naperville. Their commitment to detail is incredible. The Sugaring is the best I have ever had—extremely gentle. Highly recommend!',
+    text: 'I have been a client of Glam N Glow since they established in Aurora. Their commitment to detail is incredible. The Sugaring is the best I have ever had—extremely gentle. Highly recommend!',
     date: '3 weeks ago',
     source: 'Google'
   },
@@ -221,7 +221,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Elena Rostova',
     role: 'Founder & Master Stylist',
-    bio: 'With over 18 years of global beauty experience, Elena founded Glam N Glow in 2010 to bring European-precision hair coloring, balayage, and Airtouch technology to Naperville.',
+    bio: 'With over 18 years of global beauty experience, Elena founded Glam N Glow in 2010 to bring European-precision hair coloring, balayage, and Airtouch technology to Aurora.',
     specialties: ['Airtouch Highlights', 'Balayage Color', 'Precision Haircuts'],
     image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=750'
   },

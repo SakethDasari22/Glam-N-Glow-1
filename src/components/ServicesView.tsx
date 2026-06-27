@@ -43,28 +43,52 @@ export default function ServicesView({ setCurrentPage, setSelectedService }: Ser
     ? SERVICES
     : SERVICES.filter(cat => cat.id === activeCategory);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <div className="bg-brand-cream text-brand-charcoal min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <div className="bg-brand-cream text-brand-dark-text min-h-screen py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-16">
         
         {/* Header Title */}
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase font-semibold">Glow Menu & Pricing</span>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center space-y-4 max-w-3xl mx-auto"
+        >
+          <span className="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase font-bold block">Glow Menu & Pricing</span>
           <h1 className="font-serif text-4xl sm:text-6xl text-brand-charcoal font-light tracking-tight">Our Curated Rituals</h1>
-          <div className="w-16 h-[1px] bg-brand-gold mx-auto mt-4"></div>
+          <div className="gold-foil-line w-40 mx-auto mt-4" />
           <p className="font-sans text-sm sm:text-base text-brand-warm-gray font-light max-w-2xl mx-auto leading-relaxed">
             Every facial, haircut, and cosmetic application is tailored meticulously. Select from our menu of advanced salon rituals. Prices may vary depending on individual artist certification.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Category Tabs / Filters */}
-        <div className="flex flex-wrap justify-center gap-2 border-b border-brand-champagne/60 pb-6">
+        {/* Category Tabs / Filters with gold borders */}
+        <div className="flex flex-wrap justify-center gap-2 border-b border-brand-champagne/40 pb-6">
           <button
             onClick={() => setActiveCategory('all')}
             className={`px-5 py-2.5 font-sans text-xs tracking-widest uppercase transition-all duration-300 cursor-pointer ${
               activeCategory === 'all'
-                ? 'bg-brand-charcoal text-brand-cream font-medium'
-                : 'bg-white border border-brand-champagne/40 text-brand-charcoal hover:bg-brand-champagne/30'
+                ? 'bg-brand-charcoal text-brand-cream font-bold border border-brand-gold'
+                : 'bg-white border border-brand-champagne/40 text-brand-charcoal hover:bg-brand-champagne/20'
             }`}
             id="tab-all-services"
           >
@@ -76,8 +100,8 @@ export default function ServicesView({ setCurrentPage, setSelectedService }: Ser
               onClick={() => setActiveCategory(cat.id)}
               className={`px-5 py-2.5 font-sans text-xs tracking-widest uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                 activeCategory === cat.id
-                  ? 'bg-brand-charcoal text-brand-cream font-medium'
-                  : 'bg-white border border-brand-champagne/40 text-brand-charcoal hover:bg-brand-champagne/30'
+                  ? 'bg-brand-charcoal text-brand-cream font-bold border border-brand-gold'
+                  : 'bg-white border border-brand-champagne/40 text-brand-charcoal hover:bg-brand-champagne/20'
               }`}
               id={`tab-service-${cat.id}`}
             >
@@ -90,9 +114,10 @@ export default function ServicesView({ setCurrentPage, setSelectedService }: Ser
         <div className="space-y-20">
           {filteredCategories.map((cat) => (
             <div key={cat.id} className="space-y-8" id={`category-block-${cat.id}`}>
+              
               {/* Category Title Header */}
               <div className="flex items-center gap-3.5 border-b border-brand-champagne pb-4">
-                <div className="p-2.5 bg-brand-blush text-brand-gold border border-brand-champagne/50">
+                <div className="p-2.5 bg-brand-charcoal text-brand-gold border border-brand-gold/30">
                   {getCategoryIcon(cat.category)}
                 </div>
                 <div>
@@ -105,65 +130,84 @@ export default function ServicesView({ setCurrentPage, setSelectedService }: Ser
                 </div>
               </div>
 
-              {/* Grid of actual Service Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Grid of actual Service Cards: Royal green with gold borders */}
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={containerVariants}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+              >
                 {cat.services.map((srv, idx) => (
-                  <div 
+                  <motion.div 
                     key={idx}
-                    className="bg-white border border-brand-champagne/40 p-8 flex flex-col justify-between hover:shadow-md transition-shadow duration-300 group"
+                    variants={cardVariants}
+                    whileHover={{ y: -4 }}
+                    className="bg-brand-charcoal border border-brand-champagne/30 p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-brand-gold/60"
                     id={`service-card-${cat.id}-${idx}`}
                   >
                     <div className="space-y-4">
                       <div className="flex justify-between items-start gap-4">
-                        <h3 className="font-serif text-lg font-medium text-brand-charcoal group-hover:text-brand-gold transition-colors duration-200">
+                        <h3 className="font-serif text-lg font-medium text-brand-cream group-hover:text-brand-gold transition-colors duration-200">
                           {srv.name}
                         </h3>
-                        <span className="font-mono text-sm tracking-wide text-brand-gold font-semibold bg-brand-cream border border-brand-gold/15 py-1 px-3.5 rounded-none shrink-0">
+                        <span className="font-sans text-xs text-brand-gold font-semibold bg-white/5 border border-brand-gold/25 py-1 px-3.5 rounded-none shrink-0">
                           {srv.price}
                         </span>
                       </div>
-                      <p className="font-sans text-sm text-brand-warm-gray leading-relaxed font-light">
+                      <p className="font-sans text-sm text-brand-cream/70 leading-relaxed font-light">
                         {srv.description}
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-brand-champagne/30 flex items-center justify-between">
-                      <span className="font-sans text-[10px] tracking-widest text-brand-warm-gray uppercase font-light">
+                    <div className="pt-6 mt-6 border-t border-brand-champagne/15 flex items-center justify-between">
+                      <span className="font-sans text-[10px] tracking-widest text-brand-cream/50 uppercase font-light">
                         Booking Required
                       </span>
                       <button
                         onClick={() => handleBookService(srv.name)}
-                        className="bg-transparent hover:bg-brand-charcoal border border-brand-charcoal/20 hover:border-brand-charcoal text-brand-charcoal hover:text-brand-cream font-sans text-[10px] tracking-widest uppercase py-2 px-4 transition-all duration-300 font-semibold cursor-pointer rounded-none inline-flex items-center gap-1.5"
+                        className="bg-brand-gold hover:bg-white text-brand-charcoal font-sans text-[10px] tracking-widest uppercase py-2.5 px-4.5 transition-all duration-300 font-bold cursor-pointer rounded-none inline-flex items-center gap-1.5 shadow-md gold-glow"
                         id={`btn-book-${cat.id}-${idx}`}
                       >
                         <Calendar size={12} />
                         <span>Book Service</span>
                       </button>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
 
         {/* Bottom Booking CTA banner */}
-        <div className="bg-brand-blush/40 border border-brand-champagne/60 p-8 sm:p-12 text-center space-y-6">
-          <span className="font-sans text-xs tracking-[0.25em] text-brand-gold uppercase font-semibold block">Need a Custom Package?</span>
-          <h2 className="font-serif text-2xl sm:text-4xl text-brand-charcoal font-light">Can’t decide which combination is right?</h2>
-          <p className="font-sans text-sm text-brand-warm-gray max-w-xl mx-auto font-light leading-relaxed">
-            Our expert cosmetologists offer complimentary consultations to curate custom beauty packages for weddings, formal events, or full glow makeovers.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => handleBookService('Custom Beauty Consultation')}
-              className="bg-brand-charcoal hover:bg-brand-gold text-brand-cream hover:text-brand-charcoal font-sans text-xs tracking-widest uppercase py-4 px-8 transition-all duration-300 font-semibold cursor-pointer rounded-none"
-              id="services-consultation-btn"
-            >
-              Book Complimentary Consultation
-            </button>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="bg-brand-charcoal border border-brand-champagne/30 p-8 sm:p-14 text-center space-y-6 relative overflow-hidden rounded-lg shadow-2xl"
+        >
+          <div className="absolute inset-0 bg-radial-at-c from-brand-blush/20 to-transparent pointer-events-none" />
+          
+          <div className="relative z-10 space-y-4">
+            <span className="font-sans text-xs tracking-[0.25em] text-brand-gold uppercase font-bold block">Need a Custom Package?</span>
+            <h2 className="font-serif text-2xl sm:text-4xl text-brand-cream font-light">Can’t decide which combination is right?</h2>
+            <div className="gold-foil-line w-24 mx-auto mt-2" />
+            <p className="font-sans text-sm text-brand-cream/70 max-w-xl mx-auto font-light leading-relaxed">
+              Our expert cosmetologists offer complimentary consultations to curate custom beauty packages for weddings, formal events, or full glow makeovers.
+            </p>
+            <div className="pt-4">
+              <button
+                onClick={() => handleBookService('Custom Beauty Consultation')}
+                className="bg-brand-gold hover:bg-white text-brand-charcoal font-sans text-xs tracking-widest uppercase py-4 px-8 transition-all duration-300 font-bold cursor-pointer rounded-none shadow-xl gold-glow"
+                id="services-consultation-btn"
+              >
+                Book Complimentary Consultation
+              </button>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </div>

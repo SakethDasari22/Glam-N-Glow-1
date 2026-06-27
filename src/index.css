@@ -5,14 +5,15 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
   
-  --color-brand-cream: #FAF9F6;
-  --color-brand-blush: #E8EFEA;
-  --color-brand-champagne: #D4DFDB;
-  --color-brand-gold: #C29F54;
-  --color-brand-gold-dark: #9C7E3E;
-  --color-brand-gold-light: #F4EFDE;
-  --color-brand-charcoal: #0B241C;
-  --color-brand-warm-gray: #465852;
+  --color-brand-cream: #FAF7F0;         /* Soft ivory cream base */
+  --color-brand-blush: #114B3A;         /* Primary emerald/royal green */
+  --color-brand-champagne: #C9A659;     /* Warm champagne gold */
+  --color-brand-gold: #D4AF37;          /* Bright royal gold */
+  --color-brand-gold-dark: #AA8417;     /* Dark accent gold */
+  --color-brand-gold-light: #F9F3E6;    /* Very light warm gold-ivory */
+  --color-brand-charcoal: #0B3D2E;      /* Ultimate deep royal green background */
+  --color-brand-warm-gray: #4A5D57;     /* Elegant slate-green gray */
+  --color-brand-dark-text: #121C18;     /* Near black charcoal text */
 }
 
 /* Custom scrollbar styling for a polished look */
@@ -29,4 +30,37 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-brand-gold);
 }
+
+/* Luxury gold foil divider/border */
+.gold-foil-border {
+  border-image: linear-gradient(to right, #FAF7F0 0%, #C9A659 50%, #FAF7F0 100%) 1;
+}
+
+.gold-foil-line {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C9A659 50%, transparent);
+}
+
+/* Subtle Shimmer Sparkle animation */
+@keyframes gold-sparkle {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(-45deg, #0B3D2E, #114B3A, #082F24, #145C47);
+  background-size: 400% 400%;
+  animation: gold-sparkle 15s ease infinite;
+}
+
+/* Premium Button Glow */
+.gold-glow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-glow:hover {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
 

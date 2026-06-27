@@ -717,7 +717,7 @@ export default function ContactView({ initialSelectedService }: ContactViewProps
           <div className="lg:col-span-5 space-y-8">
             
             {/* Real-time Receipt/Summary Ticket */}
-            <div className="bg-brand-charcoal text-white p-8 border border-neutral-800 space-y-6 relative overflow-hidden shadow-lg">
+            <div className="bg-brand-charcoal text-white p-8 border border-brand-champagne/20 space-y-6 relative overflow-hidden shadow-lg">
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
               
               <div className="border-b border-white/10 pb-4 text-center">
@@ -791,42 +791,42 @@ export default function ContactView({ initialSelectedService }: ContactViewProps
             </div>
 
             {/* Standard Contact/Location info */}
-            <div className="bg-white border border-brand-champagne/50 p-6 space-y-4">
-              <h4 className="font-serif text-base font-semibold text-brand-charcoal border-b border-brand-champagne pb-2">
+            <div className="bg-brand-charcoal text-brand-cream border border-brand-champagne/30 p-6 space-y-4 shadow-xl">
+              <h4 className="font-serif text-base font-semibold text-brand-gold border-b border-brand-champagne/25 pb-2">
                 Salon Inquiries
               </h4>
-              <div className="space-y-3 font-sans text-xs text-brand-warm-gray font-light">
+              <div className="space-y-3 font-sans text-xs text-brand-cream/80 font-light">
                 <div className="flex items-start gap-2.5">
                   <MapPin size={15} className="text-brand-gold shrink-0 mt-0.5" />
                   <span>{BUSINESS_INFO.address}</span>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <Phone size={15} className="text-brand-gold shrink-0 mt-0.5" />
-                  <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="hover:text-brand-gold">
+                  <a href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9]/g, '')}`} className="hover:text-brand-gold text-brand-cream font-medium">
                     {BUSINESS_INFO.phone}
                   </a>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <Mail size={15} className="text-brand-gold shrink-0 mt-0.5" />
-                  <a href={`mailto:${BUSINESS_INFO.email}`} className="hover:text-brand-gold">
+                  <a href={`mailto:${BUSINESS_INFO.email}`} className="hover:text-brand-gold text-brand-cream font-medium">
                     {BUSINESS_INFO.email}
                   </a>
                 </div>
                 <div className="flex items-start gap-2.5">
                   <Clock size={15} className="text-brand-gold shrink-0 mt-0.5" />
                   <div>
-                    <span className="block font-medium">Tuesday–Sunday: 10am – 7pm</span>
-                    <span className="block text-red-500 mt-0.5">Mondays Closed</span>
+                    <span className="block font-medium text-brand-cream">Tuesday–Sunday: 10am – 7pm</span>
+                    <span className="block text-red-400 mt-0.5">Mondays Closed</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Google Map Frame */}
-            <div className="bg-white border border-brand-champagne/50 p-1">
+            <div className="bg-brand-charcoal border-2 border-brand-champagne/40 p-1 shadow-xl">
               <iframe
                 title="Google Maps Location"
-                src="https://maps.google.com/maps?q=2760%20Aurora%20Ave%20Suite%20100%20Naperville%20IL%2060540&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=4255%20Westbrook%20Dr%20Unit%20207%20Aurora%20IL%2060504&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="240"
                 style={{ border: 0 }}
